@@ -194,10 +194,20 @@
 
 				removeItem = todo => {
 					this.props.store.dispatch(removeTodoAction(todo.id));
+
+					return API.deleteTodo(todo.id).catch(() => {
+						this.props.store.dispatch(addTodoAction(todo));
+						alert("An eror occured. Try again");
+					});
 				};
 
 				toggleItem = id => {
 					this.props.store.dispatch(toggleTodoAction(id));
+
+					return API.saveTodoToggle(id).catch(() => {
+						this.props.store.dispatch(toggleTodoAction(id));
+						alert("An eror occured. Try again");
+					});
 				};
 
 				render() {
@@ -237,6 +247,11 @@
 
 				removeItem = goal => {
 					this.props.store.dispatch(removeGoalAction(goal.id));
+
+					return API.deleteGoal(goal.id).catch(() => {
+						this.props.store.dispatch(addGoalAction(goal));
+						alert("An eror occured. Try again");
+					});
 				};
 
 				render() {
