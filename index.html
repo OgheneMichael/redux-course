@@ -5,6 +5,9 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<title>Todo/Goals</title>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.1/redux.min.js"></script>
+		<script src="https://unpkg.com/react@16.3.0-alpha.1/umd/react.development.js"></script>
+		<script src="https://unpkg.com/react-dom@16.3.0-alpha.1/umd/react-dom.development.js"></script>
+		<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
 	<body>
@@ -26,7 +29,11 @@
 			<ul id="goals"></ul>
 		</div>
 
-		<script>
+		<hr />
+
+		<div id="app"></div>
+
+		<script type="text/javascript">
 			function generateId() {
 				return (
 					Math.random()
@@ -226,6 +233,51 @@
 			document.getElementById("todoBtn").addEventListener("click", addTodo);
 
 			document.getElementById("goalBtn").addEventListener("click", addGoal);
+		</script>
+
+		<script type="text/babel">
+			function List(props) {
+				return (
+					<ul>
+						<li>LIST</li>
+					</ul>
+				);
+			}
+
+			class Todos extends React.Component {
+				render() {
+					return (
+						<div>
+							TODOS
+							<List />
+						</div>
+					);
+				}
+			}
+
+			class Goals extends React.Component {
+				render() {
+					return (
+						<div>
+							GOALS
+							<List />
+						</div>
+					);
+				}
+			}
+
+			class App extends React.Component {
+				render() {
+					return (
+						<div>
+							<Todos />
+							<Goals />
+						</div>
+					);
+				}
+			}
+
+			ReactDOM.render(<App />, document.getElementById("app"));
 		</script>
 	</body>
 </html>
