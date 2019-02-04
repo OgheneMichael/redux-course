@@ -206,7 +206,7 @@
 
 					return API.saveTodoToggle(id).catch(() => {
 						this.props.store.dispatch(toggleTodoAction(id));
-						alert("An eror occured. Try again");
+						alert("An eror occured. Try again.");
 					});
 				};
 
