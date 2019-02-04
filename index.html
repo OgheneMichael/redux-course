@@ -273,8 +273,8 @@
 					);
 				};
 
-				removeItem = id => {
-					this.props.store.dispatch(removeTodoAction(id));
+				removeItem = todo => {
+					this.props.store.dispatch(removeTodoAction(todo.id));
 				};
 
 				toggleItem = id => {
